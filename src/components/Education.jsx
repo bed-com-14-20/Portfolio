@@ -7,7 +7,7 @@ const Education = () => {
       id: 1,
       title: "Computer Science Education Degree",
       institution: "University of Malawi",
-      year: "2021 - Present",
+      year: "2025 - Present",
       icon: <FaGraduationCap />,
       description: "Focusing on software development, algorithms, and educational technology"
     },
@@ -23,9 +23,9 @@ const Education = () => {
       id: 3,
       title: "MSCE - Malawi School Certificate of Education",
       institution: "Malawi School Certificate",
-      year: "2018",
+      year: "2019",
       icon: <FaSchool />,
-      description: "Distinction in Mathematics, Physics, and Computer Studies"
+       
     }
   ];
 

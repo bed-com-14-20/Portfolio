@@ -42,10 +42,10 @@ export default function Contact() {
   ];
 
   const socialLinks = [
-    { icon: <FaGithub />, name: "GitHub", url: "https://github.com/mike", color: "#333" },
+    { icon: <FaGithub />, name: "GitHub", url: "https://github.com/bed-com-14-20?tab=repositories", color: "#333" },
     { icon: <FaLinkedin />, name: "LinkedIn", url: "https://linkedin.com/in/mike", color: "#0077b5" },
-    { icon: <FaTwitter />, name: "Twitter", url: "https://twitter.com/mike", color: "#1da1f2" },
-    { icon: <FaFacebook />, name: "Twitter", url: "https://twitter.com/mike", color: "#1da1f2" }
+    { icon: <FaTwitter />, name: "Twitter", url: "https://x.com/MikeSukwala", color: "#1da1f2" },
+    { icon: <FaFacebook />, name: "Twitter", url: "https://web.facebook.com/mike.sukwala.5", color: "#1da1f2" }
   ];
 
   const handleChange = (e) => {
@@ -136,7 +136,7 @@ export default function Contact() {
               )}
               
               <div className="form-group">
-                <label htmlFor="name">Your Name</label>
+                <label htmlFor="name"> Your Name </label>
                 <input
                   type="text"
                   id="name"
@@ -149,7 +149,7 @@ export default function Contact() {
               </div>
 
               <div className="form-group">
-                <label htmlFor="email">Email Address</label>
+                <label htmlFor="email"> Email Address </label>
                 <input
                   type="email"
                   id="email"
@@ -157,12 +157,12 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  placeholder="john@example.com"
+                  placeholder="Richard@example.com"
                 />
               </div>
 
-              <div className="form-group">
-                <label htmlFor="subject">Subject</label>
+              <div className= "form-group">
+                <label htmlFor=  "subject">  Subject  </label>
                 <input
                   type="text"
                   id="subject"
@@ -170,12 +170,12 @@ export default function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  placeholder="Project Inquiry"
+                  placeholder= "Project Inquiry"
                 />
               </div>
 
               <div className="form-group">
-                <label htmlFor="message">Message</label>
+                <label htmlFor="message">  Message  </label>
                   <textarea
                   id="message"
                   name="message"

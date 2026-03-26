@@ -58,10 +58,10 @@ export default function About() {
               </div>
               <div className="code-content">
                 <pre><code>{`const mike = {
-  name: "Mike",
-  location: "Lilongwe, Malawi",
+  name: "Mike Sukwala",
+  location: "Mulanje, Malawi",
   passion: "Building amazing web apps",
-  skills: ["React", "NestJS", "Laravel", "DHIS2"]
+  skills: ["Website Development", "Mobile App Development", "ICT Teacher", "Data Entry" "Network Admnistrator", "Database Admnistrator",]
 };`}</code></pre>
               </div>
             </div>

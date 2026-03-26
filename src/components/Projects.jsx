@@ -73,11 +73,9 @@ const Projects = () => {
     {
       id: 6,
       title: "TestMate Mobile App",
-      description: "Cross-platform mobile app for tracking expenses, setting budgets, and visualizing spending habits with charts.",
+      description: "Administering Examinations Online",
       technologies: ["Flutter", "Firebase"],
       icons: [<FaMobile />, <FaNodeJs />, <FaDatabase />],
-      github: "https://github.com/mike/expense-tracker",
-      demo: "https://expense-tracker.dev",
       category: "mobile",
       image: "💰",
       featured: true
