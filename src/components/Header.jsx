@@ -1,65 +1,69 @@
- import { useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
+// Header.jsx
+import { useState, useEffect } from 'react';
+import { FaBars, FaTimes, FaMoon, FaSun } from 'react-icons/fa';
 
-const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+export default function Header() {
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
-  const links = [
-    { name: 'About', path: '#about' },
-    { name: 'Skills', path: '#skills' },
-    { name: 'Projects', path: '#projects' },
-    { name: 'Experience', path: '#experience' },
-    { name: 'Education', path: '#education' },
-    { name: 'Contact', path: '#contact' },
-  ];
+  const links = ['Home', 'About', 'Skills', 'Projects', 'Contact'];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }, [darkMode]);
+
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
+  };
 
   return (
-    <header className="nav fixed w-full z-50">
-      <nav className="nav-container">
-        <button
-          className="text-[var(--primary)] focus:outline-none"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-        >
-          {menuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
-        </button>
+    <header className={`header ${scrolled ? 'scrolled' : ''}`}>
+      <div className="nav-container">
+        <div className="logo">
+          <span className="logo-bracket">&lt;</span>
+          Mike<span className="logo-dot">.</span>dev
+          <span className="logo-bracket">/&gt;</span>
+        </div>
 
-        {menuOpen && (
-          <ul>
-            {links.map((link) => (
-              <li key={link.name}>
-                <a
-                  href={link.path}
-                  className="hover:bg-[var(--accent)] hover:text-white transition-all block"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {link.name}
-                </a>
-                {link.name === 'About' && (
-                  <div className="dropdown">
-                    <a
-                      href="#about#bio"
-                      className="hover:bg-[var(--accent)] hover:text-white transition-all block"
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      Bio
-                    </a>
-                    <a
-                      href="#about#interests"
-                      className="hover:bg-[var(--accent)] hover:text-white transition-all block"
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      Interests
-                    </a>
-                  </div>
-                )}
-              </li>
-            ))}
-          </ul>
-        )}
-      </nav>
+        <nav className={`menu ${open ? 'open' : ''}`}>
+          {links.map((link, index) => (
+            <a
+              key={link}
+              href={`#${link.toLowerCase()}`}
+              onClick={() => setOpen(false)}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <span className="nav-number">0{index + 1}.</span>
+              {link}
+            </a>
+          ))}
+          <button className="theme-toggle-mobile" onClick={toggleTheme}>
+            {darkMode ? <FaSun /> : <FaMoon />}
+          </button>
+        </nav>
+
+        <div className="nav-actions">
+          <button className="theme-toggle" onClick={toggleTheme}>
+            {darkMode ? <FaSun /> : <FaMoon />}
+          </button>
+          <button className="hamburger" onClick={() => setOpen(!open)}>
+            {open ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
+      </div>
     </header>
   );
-};
-
-export default Header;
+}
